@@ -74,4 +74,44 @@
 }
 
 ]
+}"logo":"langnau.png"
+},
+
+{
+"name":"UHC Uster",
+"short":"UHC Uster",
+"league":"NLA",
+"logo":"uster.png"
+},
+
+{
+"name":"Floorball Thurgau",
+"short":"Florball Thurgau",
+"league":"NLA",
+"logo":"thurgau.png"
+},
+
+{
+"name":"UHC Alligator Malans",
+"short":"UHC Malans",
+"league":"NLA",
+"logo":"malans.png"
+},
+
+
+{
+"name":"UHC WaSa St. Gallen",
+"short":"WaSa",
+"league":"NLA",
+"logo":"wasa.png"
+},
+
+{
+"name":"Floorball Fribourg",
+"short":"Fribourg",
+"league":"NLA",
+"logo":"fribourg.png"
+}
+
+]
 }
