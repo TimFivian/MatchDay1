@@ -1,40 +1,163 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Match Controller</title>
-<link rel="stylesheet" href="controller.css">
+  <meta charset="UTF-8">
+  <title>Match Controller</title>
+  <link rel="stylesheet" href="controller.css">
 </head>
-
 <body>
 
+<!-- SETUP SCREEN -->
 <div id="setupScreen" class="container">
 
-<h1>Match Setup</h1>
+  <h1>Match Setup</h1>
 
-<div class="box">
+  <div class="box">
 
-<div class="field">
-<label>Liga</label>
-<select id="leagueSelect"></select>
+    <div class="field">
+      <label>Liga</label>
+      <select id="leagueSelect"></select>
+    </div>
+
+    <div class="field">
+      <label>Heimteam</label>
+      <select id="homeTeamSelect"></select>
+      <img id="homeLogoPreview" class="logoPreview">
+    </div>
+
+    <div class="field">
+      <label>Gastteam</label>
+      <select id="awayTeamSelect"></select>
+      <img id="awayLogoPreview" class="logoPreview">
+    </div>
+
+    <button onclick="startMatch()">Spiel starten</button>
+
+  </div>
+
 </div>
 
-<div class="field">
-<label>Heimteam</label>
-<select id="homeTeamSelect"></select>
-<img id="homeLogoPreview" class="logoPreview">
+<!-- CONTROLLER SCREEN -->
+<div id="controllerScreen" class="container" style="display:none">
+
+  <h1>Match Controller</h1>
+
+  <div class="box">
+
+    <!-- CLOCK & SCORE -->
+    <div class="clock" id="liveClock">20:00</div>
+    <div class="score" id="liveScore">0 : 0</div>
+
+    <div class="btnRow">
+      <button onclick="startClock()">▶ Start</button>
+      <button onclick="pauseClock()">⏸ Pause</button>
+      <button onclick="resetClock()">↺ Reset</button>
+    </div>
+
+    <hr>
+
+    <!-- SCORE BUTTONS -->
+    <div class="btnRow">
+      <button onclick="score('home',1)">⬆ Tor Heim</button>
+      <button onclick="score('home',-1)">⬇ -1 Heim</button>
+      <button onclick="score('away',1)">⬆ Tor Gast</button>
+      <button onclick="score('away',-1)">⬇ -1 Gast</button>
+    </div>
+
+    <hr>
+
+    <!-- PERIOD -->
+    <div class="field">
+      <label>Drittel: <span id="periodDisplay">1</span></label>
+      <div class="btnRow">
+        <button onclick="changePeriod(-1)">◀ Drittel -</button>
+        <button onclick="changePeriod(1)">Drittel + ▶</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- TIMEOUT -->
+    <div class="field">
+      <label>Timeout</label>
+      <div class="btnRow">
+        <button onclick="setTeamTimeout('home')">Timeout Heim</button>
+        <button onclick="setTeamTimeout('away')">Timeout Gast</button>
+        <button onclick="clearTeamTimeout()">✕ Clear</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- BREAK -->
+    <div class="field">
+      <label>Pause</label>
+      <div class="btnRow">
+        <button onclick="startBreak(600)">10 Min Pause</button>
+        <button onclick="startBreak(900)">15 Min Pause</button>
+        <button onclick="cancelBreak()">✕ Abbrechen</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- PENALTIES -->
+    <div class="field">
+      <label>Strafen</label>
+      <div class="btnRow">
+        <button onclick="showPenaltyForm('home')">+ Strafe Heim</button>
+        <button onclick="showPenaltyForm('away')">+ Strafe Gast</button>
+      </div>
+      <div style="display:flex; gap:20px; margin-top:10px;">
+        <div style="flex:1">
+          <strong>Heim</strong>
+          <div id="homePenaltyList"></div>
+        </div>
+        <div style="flex:1">
+          <strong>Gast</strong>
+          <div id="awayPenaltyList"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
-<div class="field">
-<label>Gastteam</label>
-<select id="awayTeamSelect"></select>
-<img id="awayLogoPreview" class="logoPreview">
+<!-- PENALTY FORM OVERLAY -->
+<div id="penaltyForm" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:100;">
+
+  <div class="box" style="width:300px;">
+    <h2>Strafe eingeben</h2>
+
+    <div class="field">
+      <label>Spielernummer</label>
+      <input id="penaltyNumber" type="number" style="width:100%; padding:8px; font-size:16px;">
+    </div>
+
+    <div class="field">
+      <label>Strafart</label>
+      <select id="penaltyType" style="width:100%; padding:8px; font-size:16px;">
+        <option value="2">2 Minuten</option>
+        <option value="4">4 Minuten (2+2)</option>
+        <option value="10">10 Minuten</option>
+        <option value="match">Matchstrafe</option>
+      </select>
+    </div>
+
+    <div class="btnRow">
+      <button onclick="addPenalty()">✓ Bestätigen</button>
+      <button onclick="closePenalty()">✕ Abbrechen</button>
+    </div>
+  </div>
+
 </div>
 
-<button onclick="startMatch()">Spiel starten</button>
+<script src="controller.js"></script>
 
-</div>
+</body>
+</html></div>
 
 </div>
 
