@@ -1,0 +1,77 @@
+{
+"teams":[
+
+{
+"name":"UHC Wiler-Ersigen",
+"short":"Wiler-Ersigen",
+"league":"NLA",
+"logo":"wiler.png"
+},
+
+{
+"name":"HC Rychenberg Winterthur",
+"short":"HC Rychenberg",
+"league":"NLA",
+"logo":"rychenberg.png"
+},
+
+{
+"name":"GC Unihockey",
+"short":"GC Zürich",
+"league":"NLA",
+"logo":"gc.png"
+},
+
+
+{
+"name":"Floorball Köniz Bern",
+"short":"Floorball Köniz",
+"league":"NLA",
+"logo":"koeniz.png"
+},
+
+{
+"name":"Tigers Langnau",
+"short":"Tigers Langnau",
+"league":"NLA",
+"logo":"langnau.png"
+},
+
+{
+"name":"UHC Uster",
+"short":"UHC Uster",
+"league":"NLA",
+"logo":"uster.png"
+},
+
+{
+"name":"Floorball Thurgau",
+"short":"Florball Thurgau",
+"league":"NLA",
+"logo":"thurgau.png"
+},
+
+{
+"name":"UHC Alligator Malans",
+"short":"UHC Malans",
+"league":"NLA",
+"logo":"malans.png"
+},
+
+
+{
+"name":"UHC WaSa St. Gallen",
+"short":"WaSa",
+"league":"NLA",
+"logo":"wasa.png"
+},
+
+{
+"name":"Floorball Fribourg",
+"short":"Fribourg",
+"league":"NLA",
+"logo":"fribourg.png"
+}
+
+]
+}
